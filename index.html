@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMW M440i — Pure Performance</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">BMW <span>M440i</span></div>
+      <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+      <div class="loader-pct" id="loaderPct">0%</div>
+    </div>
+  </div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bmw">BMW</span>
+      <span class="logo-model">M440i</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Overview</a></li>
+      <li><a href="#performance">Performance</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#specs">Specs</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Configure</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO — single tall section, one canvas, 750 frames total
+       All 3 image sequences play back-to-back as you scroll.
+       The page does NOT move until the last frame is reached.
+  ════════════════════════════════════════════════════════════ -->
+  <section id="hero" class="hero-section">
+
+    <!-- sticky viewport — stays pinned for the entire animation -->
+    <div class="hero-sticky" id="heroSticky">
+
+      <!-- single canvas for all frames -->
+      <canvas id="heroCanvas"></canvas>
+
+      <!-- overlay text — phases in/out per sequence -->
+      <div class="hero-overlay">
+
+        <!-- Phase 1: seq1 text (frames 0–239) -->
+        <div class="phase-text" id="phase1">
+          <div class="seq-tag">THE REVEAL</div>
+          <h1 class="seq-title">BMW<br/><span class="gradient-text">M440i</span></h1>
+          <p class="seq-sub">xDrive Gran Coupé</p>
+          <div class="seq-divider"></div>
+          <p class="seq-desc">374 horsepower.<br/>Zero compromise.</p>
+        </div>
+
+        <!-- Phase 2: seq2 text (frames 240–479) -->
+        <div class="phase-text phase-right" id="phase2">
+          <div class="seq-tag">THE DETAIL</div>
+          <h2 class="seq-title">Sculpted<br/><span class="gradient-text">in Light</span></h2>
+          <div class="seq-divider"></div>
+          <p class="seq-desc">Every surface shaped<br/>by aerodynamic intent.</p>
+        </div>
+
+        <!-- Phase 3: seq3 text (frames 480–749) -->
+        <div class="phase-text" id="phase3">
+          <div class="seq-tag">THE ATMOSPHERE</div>
+          <h2 class="seq-title">Born in<br/><span class="gradient-text">Darkness</span></h2>
+          <div class="seq-divider"></div>
+          <p class="seq-desc">Premium studio lighting.<br/>Uncompromising presence.</p>
+        </div>
+
+        <!-- bottom bar: progress + scroll hint -->
+        <div class="hero-bottom">
+          <div class="hero-progress-wrap">
+            <div class="hero-progress-fill" id="heroProgress"></div>
+          </div>
+          <div class="scroll-hint" id="scrollHint">
+            <span>Scroll</span>
+            <div class="scroll-hint-line"></div>
+          </div>
+        </div>
+
+        <!-- sequence label bottom-right -->
+        <div class="seq-label" id="seqLabel">01 / 03</div>
+
+      </div><!-- /hero-overlay -->
+    </div><!-- /hero-sticky -->
+
+  </section><!-- /hero-section -->
+
+  <!-- ═══ PERFORMANCE ═══ -->
+  <section class="performance" id="performance">
+    <div class="section-bg-line"></div>
+    <div class="perf-header reveal-up">
+      <span class="section-tag">PERFORMANCE</span>
+      <h2>Built to <span class="gradient-text">Dominate</span></h2>
+      <p>The M440i doesn't just move — it commands every road with surgical precision.</p>
+    </div>
+    <div class="perf-stats">
+      <div class="stat-card reveal-up" data-delay="0">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-number" data-target="374">0</div>
+        <div class="stat-unit">hp</div>
+        <div class="stat-label">Peak Power</div>
+        <div class="stat-bar"><div class="stat-fill" style="--fill:92%"></div></div>
+      </div>
+      <div class="stat-card reveal-up" data-delay="100">
+        <div class="stat-icon">🏎</div>
+        <div class="stat-number" data-target="4.7">0</div>
+        <div class="stat-unit">sec</div>
+        <div class="stat-label">0–100 km/h</div>
+        <div class="stat-bar"><div class="stat-fill" style="--fill:88%"></div></div>
+      </div>
+      <div class="stat-card reveal-up" data-delay="200">
+        <div class="stat-icon">💨</div>
+        <div class="stat-number" data-target="250">0</div>
+        <div class="stat-unit">km/h</div>
+        <div class="stat-label">Top Speed</div>
+        <div class="stat-bar"><div class="stat-fill" style="--fill:78%"></div></div>
+      </div>
+      <div class="stat-card reveal-up" data-delay="300">
+        <div class="stat-icon">🔧</div>
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-unit">Nm</div>
+        <div class="stat-label">Max Torque</div>
+        <div class="stat-bar"><div class="stat-fill" style="--fill:85%"></div></div>
+      </div>
+    </div>
+    <div class="engine-block reveal-up">
+      <div class="engine-info">
+        <h3>3.0L TwinPower Turbo</h3>
+        <p>Inline-6 engine with BMW TwinPower Turbo technology delivers instantaneous throttle response and a linear power delivery that defines the M Performance character.</p>
+        <ul class="engine-features">
+          <li><span class="dot"></span>8-Speed Steptronic Sport Transmission</li>
+          <li><span class="dot"></span>BMW xDrive All-Wheel Drive</li>
+          <li><span class="dot"></span>M Sport Differential</li>
+          <li><span class="dot"></span>Adaptive M Suspension</li>
+        </ul>
+      </div>
+      <div class="engine-visual">
+        <div class="engine-ring">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="engine-core"><span>M</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DESIGN ═══ -->
+  <section class="design-section" id="design">
+    <div class="design-header reveal-up">
+      <span class="section-tag">DESIGN</span>
+      <h2>Sculpted in <span class="gradient-text">Light</span></h2>
+    </div>
+    <div class="design-features">
+      <div class="design-card reveal-left">
+        <div class="design-card-glow"></div>
+        <div class="design-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="28" stroke="url(#dg1)" stroke-width="1.5"/>
+            <path d="M15 30 Q22 18 30 16 Q38 18 45 30 Q38 42 30 44 Q22 42 15 30Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <defs><linearGradient id="dg1" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#fff"/><stop offset="1" stop-color="#888"/></linearGradient></defs>
+          </svg>
+        </div>
+        <h3>Iconic Kidney Grille</h3>
+        <p>The enlarged, frameless kidney grille defines the M440i's bold front fascia — a signature that commands attention at every angle.</p>
+      </div>
+      <div class="design-card reveal-up">
+        <div class="design-card-glow"></div>
+        <div class="design-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 40 Q20 10 55 20" stroke="url(#dg2)" stroke-width="2" fill="none"/>
+            <circle cx="55" cy="20" r="4" fill="white" opacity="0.8"/>
+            <defs><linearGradient id="dg2" x1="0" y1="0" x2="60" y2="0"><stop stop-color="#fff"/><stop offset="1" stop-color="#aaa"/></linearGradient></defs>
+          </svg>
+        </div>
+        <h3>Laser Headlights</h3>
+        <p>Adaptive LED headlights with optional BMW Laserlight technology illuminate the road up to 600 metres ahead with crystal clarity.</p>
+      </div>
+      <div class="design-card reveal-right">
+        <div class="design-card-glow"></div>
+        <div class="design-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 45 L30 15 L50 45" stroke="url(#dg3)" stroke-width="2" fill="none"/>
+            <path d="M18 35 L42 35" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <defs><linearGradient id="dg3" x1="0" y1="0" x2="0" y2="60"><stop stop-color="#fff"/><stop offset="1" stop-color="#666"/></linearGradient></defs>
+          </svg>
+        </div>
+        <h3>Gran Coupé Silhouette</h3>
+        <p>Four doors, a sweeping roofline, and a fastback rear — the Gran Coupé body style merges practicality with pure sports car drama.</p>
+      </div>
+    </div>
+    <div class="color-showcase reveal-up">
+      <h3>Signature Colours</h3>
+      <div class="color-swatches">
+        <div class="swatch active" style="--c:#1a1a1a" data-name="Black Sapphire"></div>
+        <div class="swatch" style="--c:#c0c0c0" data-name="Brooklyn Grey"></div>
+        <div class="swatch" style="--c:#f5f5f5" data-name="Alpine White"></div>
+        <div class="swatch" style="--c:#1c3a6e" data-name="Portimao Blue"></div>
+        <div class="swatch" style="--c:#8b0000" data-name="Aventurine Red"></div>
+      </div>
+      <p class="swatch-name" id="swatchName">Black Sapphire</p>
+    </div>
+  </section>
+
+  <!-- ═══ SPECS ═══ -->
+  <section class="specs-section" id="specs">
+    <div class="specs-bg-grid"></div>
+    <div class="specs-header reveal-up">
+      <span class="section-tag">SPECIFICATIONS</span>
+      <h2>Every <span class="gradient-text">Detail</span> Matters</h2>
+    </div>
+    <div class="specs-grid">
+      <div class="spec-group reveal-up" data-delay="0">
+        <h4>Engine</h4>
+        <div class="spec-row"><span>Type</span><span>3.0L I6 TwinPower Turbo</span></div>
+        <div class="spec-row"><span>Displacement</span><span>2,998 cc</span></div>
+        <div class="spec-row"><span>Max Power</span><span>374 hp @ 5,500 rpm</span></div>
+        <div class="spec-row"><span>Max Torque</span><span>500 Nm @ 1,800 rpm</span></div>
+        <div class="spec-row"><span>Compression</span><span>11.0:1</span></div>
+      </div>
+      <div class="spec-group reveal-up" data-delay="100">
+        <h4>Transmission</h4>
+        <div class="spec-row"><span>Gearbox</span><span>8-Speed Steptronic Sport</span></div>
+        <div class="spec-row"><span>Drive</span><span>BMW xDrive AWD</span></div>
+        <div class="spec-row"><span>Differential</span><span>M Sport Rear</span></div>
+        <div class="spec-row"><span>Launch Control</span><span>Standard</span></div>
+      </div>
+      <div class="spec-group reveal-up" data-delay="200">
+        <h4>Performance</h4>
+        <div class="spec-row"><span>0–100 km/h</span><span>4.7 seconds</span></div>
+        <div class="spec-row"><span>Top Speed</span><span>250 km/h (limited)</span></div>
+        <div class="spec-row"><span>Fuel Economy</span><span>7.8 L/100km</span></div>
+        <div class="spec-row"><span>CO₂ Emissions</span><span>178 g/km</span></div>
+      </div>
+      <div class="spec-group reveal-up" data-delay="300">
+        <h4>Dimensions</h4>
+        <div class="spec-row"><span>Length</span><span>4,783 mm</span></div>
+        <div class="spec-row"><span>Width</span><span>1,852 mm</span></div>
+        <div class="spec-row"><span>Height</span><span>1,422 mm</span></div>
+        <div class="spec-row"><span>Wheelbase</span><span>2,856 mm</span></div>
+        <div class="spec-row"><span>Kerb Weight</span><span>1,730 kg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section" id="contact">
+    <div class="cta-glow"></div>
+    <div class="cta-content reveal-up">
+      <span class="section-tag">YOUR M440i AWAITS</span>
+      <h2>Ready to <span class="gradient-text">Experience</span> It?</h2>
+      <p>Configure your perfect M440i or book a test drive today.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary large">Configure Your M440i</a>
+        <a href="#" class="btn-ghost large">Book a Test Drive</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="nav-logo" style="justify-content:center;margin-bottom:12px">
+      <span class="logo-bmw">BMW</span>
+      <span class="logo-model">M440i</span>
+    </div>
+    <p class="footer-tagline">The Ultimate Driving Machine</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Legal</a>
+      <a href="#">Contact</a>
+      <a href="#">Dealers</a>
+    </div>
+    <p class="footer-copy">© 2024 BMW AG. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
